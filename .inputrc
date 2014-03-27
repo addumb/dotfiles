@@ -1,0 +1,12 @@
+set match-hidden-files off
+set mark-directories on
+set show-all-if-ambiguous on
+set visible-stats on
+
+"\e\e[3~": kill-word
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word

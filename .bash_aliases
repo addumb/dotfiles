@@ -1,0 +1,5 @@
+alias ll='ls -l'
+alias acs='apt-cache search'
+alias agi='sudo apt-get install'
+alias vmi='vim'
+alias json='python -mjson.tool'

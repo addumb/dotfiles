@@ -1,0 +1,7 @@
+[user]
+	name = Adam Gray
+	email = adam@addumb.com
+[alias]
+  pom = pull origin master
+[color]
+    diff = auto

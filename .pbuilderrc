@@ -1,0 +1,29 @@
+# use previously built packages as local respository
+BINDMOUNTS="$BUILDRESULT"
+#OTHERMIRROR="deb file:$BUILDRESULT ./|deb http://us.archive.ubuntu.com/ubuntu/ precise universe|deb http://us.archive.ubuntu.com/ubuntu/ precise multiverse"
+OTHERMIRROR="deb file:$BUILDRESULT ./"
+EXTRAPACKAGES="equivs" 
+
+COMPONENTS="main universe multiverse"
+
+# create local repository if it doesn't already exist,
+# such as during initial 'pbuilder create'
+if [ ! -d $BUILDRESULT ] ; then
+        mkdir -p $BUILDRESULT
+        # set permissions so I can delete files
+        chgrp admin $BUILDRESULT
+        chmod g+rwx $BUILDRESULT
+fi
+if [ ! -e $BUILDRESULT/Packages ] ; then
+        touch $BUILDRESULT/Packages
+fi
+if [ ! -e $BUILDRESULT/Release ] ; then
+        cat << EOF > $BUILDRESULT/Release
+Archive: $DIST
+Component: main
+Origin: pbuilder
+Label: pbuilder
+Architecture: $ARCH
+EOF
+ 
+fi

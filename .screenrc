@@ -1,0 +1,14 @@
+vbell off
+autodetach on
+startup_message "off"
+defbce "on"
+defscrollback 999999
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+term screen-256color-bce
+
+hardstatus string "%{gk}[%{G}%H%{g}]%{= KW}%-w%{= rW}%n %t%{-}%+w"
+hardstatus alwayslastline
+bindkey -k k9 eval "copy" "stuff ^u"
+bindkey -k k; eval "copy" "stuff ^d"
+bindkey -m -k k9 stuff ^u
+bindkey -m -k k; stuff ^d
